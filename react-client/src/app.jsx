@@ -7,10 +7,10 @@ import Announce from "./components/announces/announce.jsx";
 import Form from "./components/announces/addForm.jsx";
 import { Route, Switch } from 'react-router-dom';
 
-
 const App = () => (
   <div>
     {console.log(<Form />)}
+
     <Switch>
       <Route path='/signup' component={SignUp} />
       <Route path='/result' component={SearchList} />

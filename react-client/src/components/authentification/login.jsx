@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
 import $ from "jquery";
+import Form from './index.jsx';
 
 class Login extends React.Component {
   constructor(props) {
@@ -33,21 +34,24 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h1>Login</h1>
-        <from >
-          <label>Email</label>
-          <input type="text" name="email" value={this.state.email} onChange={this.saveValue} />
-          <br />
-          <label>Password</label>
-          <input type="password" name="password" value={this.state.password} onChange={this.saveValue} />
-          <br />
-          <input type="submit" onClick={this.sendInfo} value="Login" />
-          <br />
-          <a href="/signup">Sign Up</a>
-        </from>
-        <h1 className="error" style={{ display: "none" }}></h1>
-        {this.state.logged && <Redirect to="/" />}
+      <div className="flex">
+        <div id="welcome" className="outline w-50 pa3 mr2"></div>
+        <div id="login" className="outline w-50 pa3 mr2">
+          <h1>Login</h1>
+          <Form  className='mt0'>
+            <label>Email</label>
+            <input type="text" name="email" value={this.state.email} onChange={this.saveValue} />
+            <br />
+            <label>Password</label>
+            <input type="password" name="password" value={this.state.password} onChange={this.saveValue} />
+            <br />
+            <input type="submit" onClick={this.sendInfo} value="Login" />
+            <br />
+            <a href="/signup">Sign Up</a>
+          </Form>
+          <h1 className="error" style={{ display: "none" }}></h1>
+          {this.state.logged && <Redirect to="/" />}
+        </div>
       </div>
     );
   }
